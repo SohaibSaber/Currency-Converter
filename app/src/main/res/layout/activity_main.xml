@@ -28,13 +28,27 @@
         android:layout_height="56dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="28dp"
+        android:background="@drawable/myshape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amount_input" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="To"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/to_Countries_Spinner"
+        app:layout_constraintStart_toEndOf="@+id/from_Countries_Spinner"
+        app:layout_constraintTop_toBottomOf="@+id/amount_input" />
+
     <Spinner
         android:id="@+id/to_Countries_Spinner"
         android:layout_width="84dp"
         android:layout_height="56dp"
         android:layout_marginEnd="52dp"
+        android:background="@drawable/myshape"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amount_input" />

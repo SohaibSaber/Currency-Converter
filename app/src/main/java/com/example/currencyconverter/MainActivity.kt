@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.currencyconverter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     val fromCountriesName = arrayOf("USD", "Pakistani rupee", "Iran rial", "Afghani",)
-//    val toCountriesName = arrayOf("USD", "Pakistani rupee", "Iran rial", "Afghani",)
+    val toCountriesName = arrayOf("USD", "Pakistani rupee", "Iran rial", "Afghani",)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, fromCountriesName)
-//        val arrayAdapter2 = ArrayAdapter(this, android.R.layout.simple_spinner_item, toCountriesName)
+        val arrayAdapter2 = ArrayAdapter(this, android.R.layout.simple_spinner_item, toCountriesName)
 
         binding.fromCountriesSpinner.adapter = arrayAdapter
-//        binding.toCountriesSpinner.adapter = arrayAdapter2
+        binding.toCountriesSpinner.adapter = arrayAdapter2
 
 
         binding.fromCountriesSpinner.onItemSelectedListener = object :
@@ -30,22 +31,22 @@ class MainActivity : AppCompatActivity() {
 
             AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                TODO("Not yet implemented")
+            Toast.makeText(applicationContext,"currency selected"+fromCountriesName[p2], Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
         }
-//        binding.toCountriesSpinner.onItemSelectedListener = object :
-//            AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onNothingSelected(p0: AdapterView<*>?) {
-//                TODO("Not yet implemented")
-//            }
-//        }
+        binding.toCountriesSpinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                Toast.makeText(applicationContext,"currency selected"+toCountriesName[p2], Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
     }
 }
